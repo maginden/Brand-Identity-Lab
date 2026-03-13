@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Brand Identity Lab</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                sage: '#8DA399',
+                sageLight: '#E8F1EE',
+                blue: '#2C5282',
+                blueLight: '#EBF8FF',
+                dark: '#2D3748',
+                light: '#F7FAFC'
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+      body { 
+        font-family: 'Inter', sans-serif; 
+        background-color: #fcfdfd;
+        background-image: 
+          linear-gradient(217deg, rgba(44, 82, 130, .03), rgba(44, 82, 130, 0) 70.71%),
+          linear-gradient(127deg, rgba(76, 81, 191, .03), rgba(76, 81, 191, 0) 70.71%),
+          linear-gradient(336deg, rgba(44, 82, 130, .03), rgba(44, 82, 130, 0) 70.71%);
+        min-height: 100vh;
+        position: relative;
+        overflow-x: hidden;
+      }
+
+      .cubist-bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        opacity: 0.4;
+        pointer-events: none;
+      }
+
+      .shape {
+        position: absolute;
+        background: currentColor;
+      }
+
+      /* Artistic Cubist Shapes */
+      .shape-1 { top: 10%; left: 5%; width: 30%; height: 40%; color: rgba(44, 82, 130, 0.03); clip-path: polygon(0% 0%, 100% 20%, 80% 100%, 10% 80%); }
+      .shape-2 { top: 40%; right: 0%; width: 40%; height: 50%; color: rgba(76, 81, 191, 0.02); clip-path: polygon(20% 0%, 100% 40%, 70% 100%, 0% 70%); }
+      .shape-3 { bottom: 5%; left: 15%; width: 25%; height: 30%; color: rgba(44, 82, 130, 0.04); clip-path: polygon(10% 10%, 90% 0%, 100% 90%, 0% 100%); }
+      .shape-4 { top: 20%; left: 50%; width: 20%; height: 25%; color: rgba(76, 81, 191, 0.03); clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); }
+      
+      @keyframes check-pop {
+        0% { transform: scale(0); opacity: 0; }
+        70% { transform: scale(1.2); opacity: 1; }
+        100% { transform: scale(1); opacity: 1; }
+      }
+      .animate-check { animation: check-pop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; }
+      
+      @keyframes pulse-green {
+        0% { box-shadow: 0 0 0 0 rgba(72, 187, 120, 0.7); }
+        70% { box-shadow: 0 0 0 10px rgba(72, 187, 120, 0); }
+        100% { box-shadow: 0 0 0 0 rgba(72, 187, 120, 0); }
+      }
+      .animate-pulse-green { animation: pulse-green 0.6s ease-out; }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "react": "https://esm.sh/react@^19.2.4",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "@google/genai": "https://esm.sh/@google/genai@^1.40.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div class="cubist-bg">
+      <div class="shape shape-1"></div>
+      <div class="shape shape-2"></div>
+      <div class="shape shape-3"></div>
+      <div class="shape shape-4"></div>
+    </div>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
